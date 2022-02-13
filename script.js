@@ -19,6 +19,7 @@ document.getElementById("weatherSubmit").addEventListener("click", event => {
 
             result += `<p id="temp">${json.main.temp} &deg;F</p>`
             result += `<p id="feelsLike">(Feels like ${json.main.feels_like} &deg;F)</p>`
+            result += `<p id="humidity">Humidity: ${json.main.humidity}%</p>`
             result += `<p id="description">${json.weather.map(item => item.description).join(", ")}</p>`
 
             document.getElementById("weatherResults").innerHTML = result

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather&display=swap');
+
 body {
   margin: 0;
   
@@ -5,6 +7,18 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+h1, h2, h3, input {
+  font-family: Lato, sans-serif;
+}
+
+p, a {
+  font-family: Merriweather, serif;
+}
+
+input {
+  font-size: 1.25rem;
 }
 
 body > h1 {
@@ -31,6 +45,19 @@ body > form {
   border-bottom: solid 0.25rem gray;
 }
 
+#weatherResults img {
+  float: right;
+  margin: 0 10vw;
+}
+
+#temp {
+  font-weight: 700;
+}
+
+#feelsLike {
+  font-style: italic;
+}
+
 body > section {
   
 }
@@ -38,7 +65,7 @@ body > section {
 #fiveDayHeader {
   text-align: center;
   
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 1rem 5vw;
 }
 
@@ -56,7 +83,9 @@ section.forecast {
   background-color: #cccccc;
   padding: 1vw;
   
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .forecast h3 {
@@ -77,13 +106,26 @@ section.forecast {
   width: 20vw;
 }
 
+footer {
+  background-color: skyblue;
+  padding: 1.5rem 15vw;
+  margin: 2rem 0 0;
+}
+
+footer a {
+  color: darkblue;
+  text-decoration: none;
+  
+}
+
 @media only screen and (min-width: 961px) {
   body {
     display: grid;
     grid-template-areas:
       "header   header  "
       "form     weather "
-      "forecast forecast";
+      "forecast forecast"
+      "footer   footer";
   }
   
   body > h1 {
@@ -100,6 +142,10 @@ section.forecast {
     justify-self: right;
   }
   
+  #weatherResults img {
+    margin: 0 1vw;
+  }
+  
   body > section {
     grid-area: forecast;
   }
@@ -107,6 +153,10 @@ section.forecast {
   #weatherInput, #weatherSubmit {
     width: 20vw;
     padding: 0.5rem;
+  }
+  
+  #fiveDayHeader {
+    font-size: 3rem;
   }
   
   #forecastResults {
@@ -137,5 +187,9 @@ section.forecast {
   .forecast img {
     grid-column: span 2;
     width: 2.5vw;
+  }
+  
+  footer {
+    grid-area: footer;
   }
 }
