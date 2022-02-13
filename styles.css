@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  
+  background-color: lightyellow;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+body > h1 {
+  text-align: center;
+  
+  margin: 0;
+  padding: 1rem 0;
+  
+  background-color: skyblue;
+}
+
+body > form {
+  margin: 0 10vw;
+  align-self: center;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#weatherResults {
+  margin: 0 10vw;
+  border-top: solid 0.25rem gray;
+  border-bottom: solid 0.25rem gray;
+}
+
+body > section {
+  
+}
+
+#fiveDayHeader {
+  text-align: center;
+  
+  font-size: 3rem;
+  margin: 1rem 5vw;
+}
+
+#forecastResults {
+  margin: 1rem 15vw;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+section.forecast {
+  border: #666666 0.25rem solid;
+  border-radius: 0.5rem;
+  background-color: #cccccc;
+  padding: 1vw;
+  
+  justify-items: center;
+}
+
+.forecast h3 {
+  font-size: 1.5rem;
+  color: #333333;
+  
+  text-align: center;
+}
+
+.forecast p {
+  font-size: 1.25rem;
+  color: #333333;
+  
+  text-align: center;
+}
+
+.forecast img {
+  width: 20vw;
+}
+
+@media only screen and (min-width: 961px) {
+  body {
+    display: grid;
+    grid-template-areas:
+      "header   header  "
+      "form     weather "
+      "forecast forecast";
+  }
+  
+  body > h1 {
+    grid-area: header;
+    font-size: 5rem;
+  }
+  
+  body > form {
+    grid-area: form;
+  }
+  
+  #weatherResults {
+    grid-area: weather;
+    justify-self: right;
+  }
+  
+  body > section {
+    grid-area: forecast;
+  }
+  
+  #weatherInput, #weatherSubmit {
+    width: 20vw;
+    padding: 0.5rem;
+  }
+  
+  #forecastResults {
+    margin: 1rem 5vw;
+    
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: auto;
+    gap: 1rem 1.5vw;
+  }
+  
+  section.forecast {
+    grid-row: span 3;
+  
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .forecast h3 {
+    grid-column: span 2;
+  }
+  
+  .forecast p {
+    grid-column: span 1;
+  }
+  
+  .forecast img {
+    grid-column: span 2;
+    width: 2.5vw;
+  }
+}

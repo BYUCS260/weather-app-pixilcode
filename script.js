@@ -2,7 +2,7 @@ document.getElementById("weatherSubmit").addEventListener("click", event => {
     event.preventDefault()
 
     const value = document.getElementById("weatherInput").value
-    const apikey = "0e07a75ad1abaddf45a9a06927a7e7d0"
+    const apikey = "API KEY HERE"
 
     if (value === "")
         return
@@ -17,8 +17,9 @@ document.getElementById("weatherSubmit").addEventListener("click", event => {
             for(let weather of json.weather)
                 result += `<img src="https://openweathermap.org/img/w/${weather.icon}.png">`
 
-            result += `<h2>${json.main.temp} &deg;F</h2>`
-            result += `<p>${json.weather.map(item => item.description).join(", ")}</p>`
+            result += `<p id="temp">${json.main.temp} &deg;F</p>`
+            result += `<p id="feelsLike">(Feels like ${json.main.feels_like} &deg;F)</p>`
+            result += `<p id="description">${json.weather.map(item => item.description).join(", ")}</p>`
 
             document.getElementById("weatherResults").innerHTML = result
         })
@@ -30,9 +31,12 @@ document.getElementById("weatherSubmit").addEventListener("click", event => {
             let forecast = ""
 
             for(let item of json.list) {
-                forecast += `<h2>${moment(item.dt_txt).format("MMMM Do YYYY, h:mm:ss a")}</h2>`
-                forecast += `<p>Temperature: ${item.main.temp}</p>`
+                forecast += `<section class="forecast">`
+                forecast += `<h3>${moment(item.dt_txt).format("MMMM Do YYYY, h:mm:ss a")}</h3>`
+                forecast += `<p class="high">High: ${item.main.temp_max}</p>`
+                forecast += `<p class="low">Low: ${item.main.temp_min}</p>`
                 forecast += `<img src="http://openweathermap.org/img/w/${item.weather[0].icon}.png">`
+                forecast += `</section>`
             }
 
             document.getElementById("forecastResults").innerHTML = forecast
