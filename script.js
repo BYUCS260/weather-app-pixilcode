@@ -40,6 +40,7 @@ document.getElementById("weatherSubmit").addEventListener("click", event => {
                 forecast += `</section>`
             }
 
+            document.getElementById("fiveDayHeader").style.display = "block";
             document.getElementById("forecastResults").innerHTML = forecast
         })
 })

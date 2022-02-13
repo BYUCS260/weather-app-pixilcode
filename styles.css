@@ -67,6 +67,8 @@ body > section {
   
   font-size: 2rem;
   margin: 1rem 5vw;
+  
+  display: none;
 }
 
 #forecastResults {
